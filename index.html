@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festa de Halloween</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1>Scary Night Halloween</h1>
+            <p>Prepare-se para uma noite assustadora, Dia 25/10, Sexta-feira.</p>
+            <a href="#info" class="btn">Segue a baixo</a>
+            <a href="#ingressos" class="btn">Comprar Ingressos</a> <!-- Link para nova seção -->
+        </div>
+    </header>
+
+    <main>
+        <section id="info" class="info">
+            <h2>Informações do Evento</h2>
+            <div class="details">
+                <div>
+                    <h3>Data e Local</h3>
+                    <p><strong>Data:</strong> 25/10, Sexta-feira</p>
+                    <p><strong>Local:</strong> Chácara do JP</p>
+                </div>
+                <div>
+                    <h3>Local exato</h3>
+                    <p>cumbe de cima, localizado na cidade, um pouco antes do rancho da ararinha. </p>
+                </div>
+                <div>
+                    <h3>Ingressos</h3>
+                    <p><strong>Valor:</strong> R$ 10 para mulheres, R$ 15 para homens</p>
+                    <p><strong>Incluso:</strong> Bebidas, sinuca, e jogos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="alimentos">
+            <h2><center>Alimentos e Bebidas</center></h2>
+            <div class="food-grid">
+                <div class="food-item">
+                    <h3>Doces</h3>
+                    <p>Doces temáticos de Halloween.</p>
+                </div>
+                <div class="food-item">
+                    <h3>Bebidas</h3>
+                    <p>Refrigerantes e algumas coisas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="entretenimento">
+            <h2>Entretenimentos da Noite</h2>
+            <ul>
+                <li>
+                    <span class="toggle" onclick="toggleFantasyDetails()"><strong>Disputa de fantasia com premiação de R$ 50🏆</strong> <span class="arrow">˅</span></span>
+                    <div id="fantasy-details" class="details-hidden">
+                        <p style="color: rgb(179, 122, 18);">A disputa de melhor fantasia terá alguns critérios, como: Criatividade, detalhamento da fantasia e caracterização.<br>Não terá um certo momento para apresentação, os jurados vão discutir na hora da festa e anunciar o vencedor.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="toggle" onclick="toggleTreasureDetails()"> <strong>Caça ao tesouro💎</strong> <span class="arrow">˅</span></span>
+                    <div id="treasure-details" class="details-hidden">
+                        <p style="color: rgb(179, 122, 18);">caçar tesouro blablala</p>
+                    </div>
+                </li>
+                <li>Karaokê🎤</li>
+                <li>Doces ou travessuras🍬</li>
+                <li>Beer pong🥃</li>
+            </ul>
+        </section>
+
+        <!-- Nova Seção de Compra de Ingressos -->
+        <section id="ingressos" class="ingressos">
+            <h2>Compra de Ingressos</h2>
+            <p>Adquira seu ingresso antecipado via Pix ou pague no dia do evento com dinheiro físico.</p>
+            <div class="ingresso-options">
+                <div class="pix-option">
+                    <h3>Pagamento via Pix</h3>
+                    <p>Chave Pix: <strong>exemplo@pix.com.br</strong></p>
+                    <p>Valor: R$ 10 (mulheres) | R$ 15 (homens)</p>
+                    <p>Após o pagamento, envie o comprovante para o WhatsApp <strong>(92) 092029333</strong>.</p>
+                    <img src="https://afinz.com.br/wp-content/uploads/2022/04/QR_Code_Afinz.png" alt="foto QR CODE" width="100" height="100">
+                </div>
+                <div class="dinheiro-option">
+                    <h3>Pagamento no dia</h3>
+                    <p>Se preferir pagar com dinheiro no dia do evento, entre em contato conosco:</p>
+                    <p>
+                        <strong>
+                            <a style="color: rgb(218, 107, 3);" href="https://wa.me/5575999203956" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon"> 
+                                Whatsapp
+                            </a>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Halloween Terceirão</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
