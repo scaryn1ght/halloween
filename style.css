@@ -18,8 +18,8 @@ h1, h2, h3 {
 /* Estilos para o Header */
 header {
     position: relative;
-    height: 100vh;
-    background-image: url('https://wallpapers.com/images/hd/1920-x-1080-halloween-yvpszcfu340l71el.jpg');
+    height: 400px;
+    background-image: url('https://wallpapers.com/images/hd/1920-x-1080-halloween-yvpszcfu340l71el.jpg') ;
     background-size: cover;
     background-position: center;
     color: white;
@@ -257,6 +257,11 @@ footer {
     margin-right: 8px;
     vertical-align: middle;
 }
+.imagem-responsiva {
+    width: 100%; /* Faz a imagem ocupar 100% da largura do seu elemento pai */
+    height: auto; /* Mantém a proporção original da imagem */
+}
+
 
 /* Animações */
 @keyframes fadeIn {
@@ -313,4 +318,14 @@ footer {
         padding: 6px 15px;
         font-size: 0.9rem;
     }
+    @media (max-width: 480px) {
+        .elemento {
+            height: 200px; /* Ajuste a altura se necessário */
+        }
+    }
+    @media (max-width: 480px) {
+    .imagem-responsiva {
+        max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    }
+}
 }
