@@ -4,8 +4,13 @@ body {
     color: #f0f0f0;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
+    background: linear-gradient(135deg, #1e1e1e, #000000);
     overflow-x: hidden;
+}
+
+/* Animação suave ao rolar a página */
+html {
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
@@ -14,287 +19,299 @@ h1, h2, h3 {
     text-shadow: 3px 3px 8px #000;
 }
 
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    width: 50px;
+    height: 4px;
+    background: #ff7518;
+    display: block;
+    margin: 10px auto 0;
+}
+
 /* Estilos para o Header */
 header {
     position: relative;
-    height: 400px;
+    height: 100vh;
     background-image: url('https://wallpapers.com/images/hd/1920-x-1080-halloween-yvpszcfu340l71el.jpg');
     background-size: cover;
     background-position: center;
-    color: white;
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeIn 2s ease;
+    text-align: center;
+    color: white;
+    overflow: hidden;
 }
 
 .header-content {
     z-index: 2;
-    animation: slideIn 1.5s ease;
+    animation: fadeIn 2s ease-out;
 }
 
 .header-content h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
-    transition: transform 0.3s ease;
 }
 
 .header-content p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    transition: transform 0.3s ease;
 }
 
-.header-content .button-container {
+.button-container {
     display: flex;
+    gap: 20px;
     justify-content: center;
-    gap: 10px;
 }
 
-.header-content .btn {
+.btn {
     padding: 10px 30px;
     font-size: 1.2rem;
     background-color: #ff7518;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 2px 2px 8px #000;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.header-content .btn:hover {
-    background-color: #e64a19;
-    transform: scale(1.05);
-    box-shadow: 4px 4px 12px #000;
+.btn:hover {
+    background-color: #ff914d;
+    transform: translateY(-5px);
 }
 
-/* Efeito de overlay */
+/* Overlay */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1;
-    animation: fadeInOverlay 2s ease;
 }
 
-/* Seções principais */
-main {
-    padding: 20px;
-    background-color: #222;
-    transition: background-color 0.3s ease;
-}
-
-/* Seção de Informações */
+/* Informações do Evento */
 .info {
+    padding: 50px 20px;
+    background: #1e1e1e;
     text-align: center;
-    animation: fadeInUp 1.5s ease;
-    background-color: #333; /* Fundo escuro para a seção */
-    border-radius: 10px; /* Bordas arredondadas */
-    padding: 20px; /* Espaçamento interno */
-    margin: 20px 0; /* Margem superior e inferior */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Sombra */
 }
 
-.info .details {
+.details {
     display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.info .details div {
-    background-color: #444; /* Fundo ligeiramente mais claro */
+.info-card {
+    background: #282828;
     padding: 20px;
-    border-radius: 10px;
-    margin: 10px 0;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.info .details h3 {
-    margin-bottom: 10px;
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.info-icon {
+    font-size: 2rem;
     color: #ff7518;
-    text-shadow: 2px 2px 6px #000;
+    margin-bottom: 10px;
 }
 
-/* Seção de Alimentos */
 .food-grid {
     display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    text-align: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.food-grid h2 {
-    margin: 0;
-}
-
-/* Seção de Entretenimento */
-.entretenimento {
-    background-color: #333;
+.food-item {
+    background: #282828;
+    width: 45%;
+    margin: 10px;
     padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    animation: fadeInUp 1.5s ease;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Ajustando os itens da lista */
-.entretenimento ul {
-    list-style-type: none;
+.food-icon {
+    font-size: 2.5rem;
+    color: #ff7518;
+}
+
+.entertainment-list {
+    list-style: none;
     padding: 0;
 }
 
-.entretenimento ul li {
-    background-color: #444;
-    margin: 10px auto; /* Centraliza os itens */
+.entertainment-list li {
+    margin: 10px 0;
     padding: 10px;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    background: #282828;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    position: relative;
 }
 
-.entretenimento ul li:hover {
-    transform: scale(1.02);
+.entertainment-list li:hover {
+    background: #ff914d;
 }
 
-/* Efeito de descrição oculta */
+.arrow {
+    font-size: 1.5rem;
+    float: right;
+}
+
 .details-hidden {
     display: none;
 }
 
-.details {
-    display: block;
-}
-
-/* Estilo do botão de descrição */
-.arrow {
-    font-size: 1.2rem;
-    margin-left: 10px;
-}
-
-/* Estilos para o Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #111;
-    color: #ff7518;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
-    animation: fadeInUp 2s ease;
-}
-
-/* Seção de Ingressos */
-.ingressos {
-    text-align: center;
-    padding: 50px 10px; /* Ajusta padding para ambos os lados */
-    background-color: #333;
-    color: #ff7518;
-    animation: fadeInUp 2s ease;
-}
-
+/* Ingressos */
 .ingresso-options {
     display: flex;
-    flex-direction: column; /* Alinha itens em coluna */
-    align-items: center; /* Centraliza itens */
-    margin-top: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .pix-option, .dinheiro-option {
-    background-color: #444;
+    background: #282828;
     padding: 20px;
-    border-radius: 10px;
-    width: 90%; /* Largura responsiva */
-    max-width: 400px;
-    color: #fff;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-    margin: 10px auto; /* Centraliza os itens */
+    width: 45%;
+    margin: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-.pix-option:hover, .dinheiro-option:hover {
-    transform: translateY(-5px);
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
 }
 
-.pix-option h3, .dinheiro-option h3 {
-    font-family: 'Creepster', cursive;
-    margin-bottom: 15px;
+.whatsapp-link:hover {
+    background-color: #1ebd5a;
 }
 
-/* Estilo do ícone do WhatsApp */
 .whatsapp-icon {
     width: 20px;
     height: 20px;
-    margin-right: 8px;
-    vertical-align: middle;
+    margin-right: 10px;
 }
 
-.imagem-responsiva {
-    width: 100%; /* Faz a imagem ocupar 100% da largura do seu elemento pai */
-    height: auto; /* Mantém a proporção original da imagem */
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-media li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.social-media a {
+    color: #ff7518;
+    font-size: 2rem;
+    transition: transform 0.3s;
+}
+
+.social-media a:hover {
+    transform: scale(1.2);
 }
 
 /* Animações */
+.animated {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes fadeInUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateX(-100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes fadeInOverlay {
-    from { background-color: rgba(0, 0, 0, 0); }
-    to { background-color: rgba(0, 0, 0, 0.6); }
-}
-
 /* Responsividade */
-@media (max-width: 768px) {
-    .header-content h1 {
-        font-size: 2.5rem;
+@media (max-width: 1024px) {
+    .info-card, .food-item, .pix-option, .dinheiro-option {
+        width: 45%;
     }
 
-    .header-content p {
-        font-size: 1rem;
-    }
-
-    .header-content .btn {
-        padding: 8px 20px;
-        font-size: 1rem;
-    }
-
-    .food-item, .info .details div, .pix-option, .dinheiro-option {
-        width: 100%; /* Mais espaço para os itens em telas menores */
-        margin: 10px auto; /* Centraliza os itens */
+    .food-item, .pix-option, .dinheiro-option {
+        width: 100%;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .header-content h1 {
         font-size: 2rem;
     }
 
     .header-content p {
+        font-size: 1rem;
+    }
+
+    .details {
+        flex-direction: column;
+    }
+
+    .details div, .info-card, .food-item, .pix-option, .dinheiro-option {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 1.7rem;
+    }
+
+    .header-content p {
         font-size: 0.9rem;
     }
+}
 
-    .header-content .btn {
-        padding: 6px 15px;
-        font-size: 0.9rem;
-    }
+/* Novas adições para ajustar a seção de informações */
+.info {
+    padding: 30px 10px; /* Reduzindo o padding para melhor ajuste */
+}
 
-    .elemento {
-        height: 200px; /* Ajuste a altura se necessário */
-    }
+.details {
+    display: flex;
+    flex-direction: column; /* Mudando para coluna em telas menores */
+}
 
-    .imagem-responsiva {
-        max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
-    }
+.info-card {
+    width: 90%; /* Largura maior para telas menores */
+    margin: 10px auto; /* Centralizando */
+}
+
+.ingresso-options {
+    flex-direction: column; /* Alinhando itens verticalmente em telas menores */
+}
+
+.pix-option, .dinheiro-option {
+    width: 90%; /* Ajustando a largura para telas menores */
 }
