@@ -82,9 +82,24 @@ header {
     transition: background-color 0.3s, transform 0.3s;
 }
 
+/* Efeitos de Hover nos Botões */
 .btn:hover {
     background-color: #ff914d;
     transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 117, 24, 0.7);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Overlay */
@@ -132,6 +147,28 @@ header {
     margin-bottom: 10px;
 }
 
+/* Animações nos Ícones */
+.info-icon:hover, .food-icon:hover {
+    transform: scale(1.2);
+    animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+
+/* Seções de Alimentos */
 .food-grid {
     display: flex;
     justify-content: space-around;
@@ -196,6 +233,13 @@ header {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Feedback Visual nas Opções de Pagamento */
+.pix-option:hover, .dinheiro-option:hover {
+    box-shadow: 0 0 15px rgba(255, 117, 24, 0.7);
+    transform: translateY(-5px);
 }
 
 .whatsapp-link {
@@ -243,6 +287,47 @@ header {
     transform: scale(1.2);
 }
 
+/* Botão Flutuante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    background-color: #1ebd5a;
+    transform: scale(1.1);
+}
+
+/* Timer de Contagem Regressiva */
+#countdown {
+    font-family: 'Creepster', cursive;
+    color: #ff7518;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Animação de Fade-in ao Rolagem */
+.animated-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animated-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Animações */
 .animated {
     opacity: 0;
@@ -250,73 +335,63 @@ header {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Responsividade */
-@media (max-width: 1024px) {
-    .info-card, .food-item, .pix-option, .dinheiro-option {
-        width: 45%;
+    from {
+        opacity: 0;
     }
-
-    .food-item, .pix-option, .dinheiro-option {
-        width: 100%;
+    to {
+        opacity: 1;
     }
 }
 
-@media (max-width: 768px) {
+/* Responsividade Adicional */
+@media (max-width: 360px) {
     .header-content h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
-
     .header-content p {
+        font-size: 0.8rem;
+    }
+    .btn {
+        padding: 8px 20px;
         font-size: 1rem;
     }
+}
 
-    .details {
-        flex-direction: column;
+/* Estilos Adicionados para Melhoria */
+.header-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    transition: opacity 0.5s;
+}
+
+.header-content:hover::before {
+    opacity: 0.5;
+}
+
+/* Estilos para o Timer */
+#countdown {
+    font-family: 'Creepster', cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin: 20px 0;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
     }
-
-    .details div, .info-card, .food-item, .pix-option, .dinheiro-option {
-        width: 100%;
+    40% {
+        transform: translateY(-10px);
     }
-
-    /* Ajustando o tamanho das informações do evento para ficar igual aos doces e bebidas */
-    .info-card {
-        width: 90%; /* Ajuste a largura para 90% para uma aparência uniforme */
+    60% {
+        transform: translateY(-5px);
     }
 }
 
-@media (max-width: 480px) {
-    .header-content h1 {
-        font-size: 1.7rem;
-    }
-
-    .header-content p {
-        font-size: 0.9rem;
-    }
-}
-
-/* Novas adições para ajustar a seção de informações */
-.info {
-    padding: 30px 10px; /* Reduzindo o padding para melhor ajuste */
-}
-
-.details {
-    display: flex;
-    flex-direction: column; /* Mudando para coluna em telas menores */
-}
-
-.info-card {
-    width: 90%; /* Largura maior para telas menores */
-    margin: 10px auto; /* Centralizando */
-}
-
-.ingresso-options {
-    flex-direction: column; /* Alinhando itens verticalmente em telas menores */
-}
-
-.pix-option, .dinheiro-option {
-    width: 90%; /* Ajustando a largura para telas menores */
-}
